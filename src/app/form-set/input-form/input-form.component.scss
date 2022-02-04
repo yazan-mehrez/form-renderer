@@ -1,0 +1,38 @@
+
+.hidden {
+  visibility: hidden;
+}
+
+.ng-invalid.ng-touched {
+  background: red;
+}
+
+.mandatory {
+  margin-left: 5px;
+  color: red;
+}
+
+.form-control {
+  margin-bottom: 15px;
+
+  input:not([type=checkbox]) {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  input[type=checkbox] {
+    height: 25px;
+    width: 25px;
+    background-color: red;
+  }
+
+}

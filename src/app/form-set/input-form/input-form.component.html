@@ -1,0 +1,24 @@
+<div [class.hidden]="inputHidden | inputForm : 'inputHidden'" class="form-control">
+  <label>
+    <p>
+      <span>{{inputLabel}}</span> <span class="mandatory" *ngIf="inputMandatory">*</span>
+    </p>
+
+    <!-- General Inputs -->
+    <ng-container *ngIf="(inputType | inputForm : 'inputType') !== FormType.checkbox">
+      <input
+        [formControl]="inputControl"
+        [type]="inputType | inputForm : 'inputType'"/>
+    </ng-container>
+
+    <!-- Checkboxes -->
+    <ng-container *ngIf="(inputType | inputForm : 'inputType') === FormType.checkbox">
+      <input
+        #input
+        (change)="inputControl.setValue(input.checked)"
+        [formControl]="inputControl"
+        [type]="inputType | inputForm : 'inputType'"/>
+    </ng-container>
+
+  </label>
+</div>

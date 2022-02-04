@@ -1,0 +1,19 @@
+<form [formGroup]="rendererFormGroup" autocomplete="off" (ngSubmit)="submit()">
+  <ng-container *ngFor="let form of f.controls; let i = index">
+    <div [formGroup]="$any(form)">
+      <app-input-form
+        [inputType]="_formDetails[i].type"
+        [inputHidden]="_formDetails[i].hidden"
+        [inputMandatory]="_formDetails[i].mandatory"
+        [inputLabel]="_formDetails[i].label"
+        (setValidators)="setValidators($event, form)"
+        formControlName="value"
+      ></app-input-form>
+    </div>
+  </ng-container>
+
+  <button type="submit">Submit</button>
+  <button type="reset" class="reset">Reset</button>
+</form>
+
+
